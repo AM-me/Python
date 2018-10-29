@@ -1,0 +1,38 @@
+import sys
+import string
+
+ # The user will need to enter an input to the input box
+strength = 0
+
+# Define the variables such that the password strength check includes both letters and symbols 
+sym = list(string.punctuation)
+letters = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
+upper = list(string.ascii_uppercase)
+lower = list(string.ascii_lowercase) 
+def passcheck():
+    password = str(input("Enter your password to check strength: "))
+    password1 = list(password)
+    strength = 0
+    if len(password) < 8 or len(password) > 24:
+        print("ERRORRRRR!")
+        strength = -100000000000000000
+    elif password in letters:
+        strength -=15
+        print ("too weak broo")
+    else:
+        for i in password1:
+            if i in upper:
+                strength +=2
+            if i in lower:
+                strength +=3
+            if i in range(0,10):
+                strength +=5
+                i +=1
+            if i not in sym:
+                print("Use symbols!")
+                strength -=6
+    if strength%2==0 or strength%3==0 or strength%5 ==0:
+        print("Use more variations in password!")
+    return strength
+
+print("Strength level: ", passcheck())
