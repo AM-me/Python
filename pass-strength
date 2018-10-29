@@ -1,12 +1,10 @@
 import sys
 import string
 
- # The user will need to enter an input to the input box
 strength = 0
 
-# Define the variables such that the password strength check includes both letters and symbols 
 sym = list(string.punctuation)
-letters = ["qwertyuiop", "asdfghjkl", "zxcvbnm"]
+letters = ["qwertyuiop", "asdfghjkl", "zxcvbnm"] #if the password is this exact combo will say it weak
 upper = list(string.ascii_uppercase)
 lower = list(string.ascii_lowercase) 
 def passcheck():
@@ -22,7 +20,7 @@ def passcheck():
     else:
         for i in password1:
             if i in upper:
-                strength +=2
+                strength +=2                    ###dunno why but this isnt working correctly but oh well
             if i in lower:
                 strength +=3
             if i in range(0,10):
